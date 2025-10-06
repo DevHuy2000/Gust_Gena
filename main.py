@@ -20,10 +20,10 @@ urllib3.disable_warnings(InsecureRequestWarning)
 
 # Configuration - এখানে সবকিছু সেট করে দিন
 CONFIG = {
-    "TOTAL_ACCOUNTS": 10,  # Bạn muốn tạo bao nhiêu tài khoản (đặt thành 1000 ở đây)
+    "TOTAL_ACCOUNTS": 50,  # Bạn muốn tạo bao nhiêu tài khoản (đặt thành 1000 ở đây)
     "ACCOUNT_NAME": "GHOST_X",  # অ্যাকাউন্টের নাম (8 ক্যারেক্টারের কম হতে হবে)
     "FILENAME": "freefire_accounts",  # ফাইলের নাম (.json অটোমেটিক যুক্ত হবে)
-    "THREAD_COUNT": 150,  # Bạn muốn chạy bao nhiêu luồng cùng lúc?
+    "THREAD_COUNT": 250,  # Bạn muốn chạy bao nhiêu luồng cùng lúc?
 }
 
 AES_KEY = b'Yg&tc%DEuh6%Zc^8'
