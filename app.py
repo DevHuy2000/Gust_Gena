@@ -519,7 +519,7 @@ list_emotes = [
     909039011, 909038010, 909042008, 909041005, 909033002
 ]
 
-
+BOT_UID = '14080397828'
 # Flask Route Functions
 loop = None
 async def perform_emote(team_code: str, uids: list, emote_list: list):
@@ -551,16 +551,17 @@ async def perform_emote(team_code: str, uids: list, emote_list: list):
             
             emote_count += 1
             # Đợi một chút trước khi chuyển sang Emote ID tiếp theo
-            await asyncio.sleep(6) 
+            await asyncio.sleep(6.2) 
             
         # 3. Rời khỏi Squad sau khi hoàn thành chuỗi emote (Tùy chọn)
-#        E = await ExiT(None, key, iv) 
-#        await SEndPacKeT(None, online_writer, 'OnLine', E)
-#        await asyncio.sleep(1)
+        E = await ExiT(None, key, iv) 
+        await SEndPacKeT(None, online_writer, 'OnLine', E)
+        await asyncio.sleep(1)
 
         return {"status": "success", "message": f"All {emote_count} emotes performed successfully!"}
     except Exception as e:
         raise Exception(f"Failed to perform emotes: {str(e)}")
+
 
 @app.route('/join')
 def join_team():
@@ -579,7 +580,9 @@ def join_team():
 
     # 2. Gom UIDs
     # Chỉ lấy các UID có giá trị (không phải None)
-    uids = [uid for uid in [uid1, uid2, uid3, uid4, uid5, uid6] if uid]
+    uids_ = [uid for uid in [uid1, uid2, uid3, uid4, uid5, uid6] if uid]
+    
+    uids = list(set(uids_ + [BOT_UID]))
 
     if not uids:
         return jsonify({"status": "error", "message": "At least one UID must be provided"})
@@ -597,8 +600,8 @@ def join_team():
         "status": "success",
         "team_code": team_code,
         "uids": uids,
-        "total_emotes_scheduled": len(list_emotes),
-        "message": "Emote sequence started, bot is cycling through all emotes on targets."
+        "total_emote": len(list_emotes),
+        "message": "Bắt Đầu Nhảy Thôi Nào.! Api Buy (@Senzu01001)"
     })
 
 def run_flask():
