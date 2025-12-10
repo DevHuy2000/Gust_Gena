@@ -369,7 +369,7 @@ async def MaiiiinE():
         connector=aiohttp.TCPConnector(limit=20, limit_per_host=10)
     )
     
-    Uid , Pw = '4322134876','BY_PARAHEX-IW5FQDKED-REDZED'
+    Uid , Pw = '4333606824','BY_PARAHEX-K171DVRMG-REDZED'
     
     open_id , access_token = await GeNeRaTeAccEss(Uid , Pw)
     if not open_id or not access_token: 
