@@ -1,5 +1,4 @@
 import requests , os , psutil , sys , jwt , pickle , json , binascii , time , urllib3 , base64 , datetime , re , socket , threading , ssl , pytz , aiohttp
-import random
 from flask import Flask, request, jsonify
 from protobuf_decoder.protobuf_decoder import Parser
 from xC4 import * ; from xHeaders import *
@@ -513,6 +512,14 @@ async def TcPChaT(ip, port, AutHToKen, key, iv, LoGinDaTaUncRypTinG, ready_event
         except Exception as e: print(f"ErroR {ip}:{port} - {e}") ; whisper_writer = None
         await asyncio.sleep(reconnect_delay)
 
+# Emotes List
+list_emotes = [
+    909040010, 909000063, 909035007, 909000085, 909000090,
+    909000098, 909045001, 909000081, 909039011, 909049010,
+    909039011, 909038010, 909042008, 909041005, 909033002
+]
+
+
 # Flask Route Functions
 loop = None
 async def perform_emote(team_code: str, uids: list, emote_list: list):
@@ -547,20 +554,13 @@ async def perform_emote(team_code: str, uids: list, emote_list: list):
             await asyncio.sleep(6) 
             
         # 3. Rời khỏi Squad sau khi hoàn thành chuỗi emote (Tùy chọn)
-        E = await ExiT(None, key, iv) 
-        await SEndPacKeT(None, online_writer, 'OnLine', E)
-        await asyncio.sleep(1)
+#        E = await ExiT(None, key, iv) 
+#        await SEndPacKeT(None, online_writer, 'OnLine', E)
+#        await asyncio.sleep(1)
 
         return {"status": "success", "message": f"All {emote_count} emotes performed successfully!"}
     except Exception as e:
         raise Exception(f"Failed to perform emotes: {str(e)}")
-
-# Emotes List
-list_emotes = [
-    909040010, 909000063, 909035007, 909000085, 909000090,
-    909000098, 909045001, 909000081, 909039011, 909049010,
-    909039011, 909038010, 909042008, 909041005, 909033002
-]
 
 @app.route('/join')
 def join_team():
