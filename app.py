@@ -9,14 +9,9 @@ from threading import Thread
 import DEcwHisPErMsG_pb2 , MajoRLoGinrEs_pb2 , PorTs_pb2 , MajoRLoGinrEq_pb2 , sQ_pb2 , Team_msg_pb2
 from cfonts import render, say
 
-
-#EMOTES BY PARAHEX X CODEX
-
-
-
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)  
 
-# VariabLes dyli 
+# VariabLes
 #------------------------------------------#
 online_writer = None
 whisper_writer = None
@@ -38,7 +33,7 @@ Hr = {
     'Expect': "100-continue",
     'X-Unity-Version': "2018.4.11f1",
     'X-GA': "v1 1",
-    'ReleaseVersion': "OB51"}
+    'ReleaseVersion': "OB52"}
 
 # ---- Random Colores ----
 def get_random_color():
@@ -91,7 +86,7 @@ async def EncRypTMajoRLoGin(open_id, access_token):
     major_login.event_time = str(datetime.now())[:-7]
     major_login.game_name = "free fire"
     major_login.platform_id = 1
-    major_login.client_version = "1.118.1"
+    major_login.client_version = "1.120.2"
     major_login.system_software = "Android OS 9 / API-28 (PQ3B.190801.10101846/G9650ZHU2ARC6)"
     major_login.system_hardware = "Handheld"
     major_login.telecom_operator = "Verizon"
@@ -512,14 +507,15 @@ async def TcPChaT(ip, port, AutHToKen, key, iv, LoGinDaTaUncRypTinG, ready_event
         except Exception as e: print(f"ErroR {ip}:{port} - {e}") ; whisper_writer = None
         await asyncio.sleep(reconnect_delay)
 
-# Emotes List
+# Emotes Evo List
 list_emotes = [
     909040010, 909000063, 909035007, 909000085, 909000090,
     909000098, 909045001, 909000081, 909039011, 909049010,
     909039011, 909038010, 909042008, 909041005, 909033002
 ]
+# Add You Bot UID
+BOT_UID = '14418894248'
 
-BOT_UID = '14080397828'
 # Flask Route Functions
 loop = None
 async def perform_emote(team_code: str, uids: list, emote_list: list):
@@ -527,7 +523,7 @@ async def perform_emote(team_code: str, uids: list, emote_list: list):
     if online_writer is None:
         raise Exception("Bot not connected")
     
-    # Tùy chọn: Trộn danh sách nếu bạn muốn thứ tự ngẫu nhiên
+    #
     random.shuffle(emote_list) 
     
     emote_count = 0
@@ -553,7 +549,7 @@ async def perform_emote(team_code: str, uids: list, emote_list: list):
             # Đợi một chút trước khi chuyển sang Emote ID tiếp theo
             await asyncio.sleep(6.2) 
             
-        # 3. Rời khỏi Squad sau khi hoàn thành chuỗi emote (Tùy chọn)
+        # 3. Rời khỏi Squad sau khi hoàn thành chuỗi emote
         E = await ExiT(None, key, iv) 
         await SEndPacKeT(None, online_writer, 'OnLine', E)
         await asyncio.sleep(1)
@@ -590,7 +586,7 @@ def join_team():
     if not list_emotes:
         return jsonify({"status": "error", "message": "Emote list is empty"})
         
-    # 3. Gọi coroutine mới (perform_all_emotes)
+    # 3. Gọi coroutine
     # Truyền toàn bộ danh sách list_emotes vào hàm bất đồng bộ
     future = asyncio.run_coroutine_threadsafe(
         perform_emote(team_code, uids, list_emotes), loop 
@@ -601,7 +597,8 @@ def join_team():
         "team_code": team_code,
         "uids": uids,
         "total_emote": len(list_emotes),
-        "message": "Bắt Đầu Nhảy Thôi Nào.! Api Buy (@Senzu01001)"
+        "message": "All Emote Sending Ready !",
+        "follow": "@Senzu01001"
     })
 
 def run_flask():
@@ -609,7 +606,7 @@ def run_flask():
 
 async def MaiiiinE():
     global loop, key, iv, region
-    Uid , Pw = '4358591010','BY_PARAHEX-NRHBE3RS0-REDZED'
+    Uid , Pw = '4402722440','BY_PARAHEX-61JNBODKC-REDZED'
     
 
     open_id , access_token = await GeNeRaTeAccEss(Uid , Pw)
